@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="TLAST"/>
+        <attribute name="authors" value="dewi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-18 09.13.53 PM"/>
+        <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMS0xODswOC4xMi40MiBQTTsyMTI5"/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMS0xODswOS4xMy41MyBQTTsxOzIyNDE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NamaTugas, NIM, matkul, dosen, deadline" type="String" array="True" size="10"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="9" direction="inc" step="1">
+                <input variable="NamaTugas[i]"/>
+                <input variable="NIM[i]"/>
+                <input variable="matkul[i]"/>
+                <input variable="dosen[i]"/>
+                <input variable="deadline[i]"/>
+            </for>
+        </body>
+    </function>
+    <function name="AddTask" type="None" variable="">
+        <parameters>
+            <parameter name="NamaTugas" type="String" array="False"/>
+            <parameter name="NIM" type="String" array="False"/>
+            <parameter name="matkul" type="String" array="False"/>
+            <parameter name="dosen" type="String" array="False"/>
+            <parameter name="deadline" type="String" array="False"/>
+        </parameters>
+        <body>
+            <input variable="NamaTugas"/>
+            <input variable="NIM"/>
+            <input variable="matkul"/>
+            <input variable="dosen"/>
+            <input variable="deadline"/>
+        </body>
+    </function>
+</flowgorithm>
