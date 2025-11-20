@@ -4,38 +4,68 @@
         <attribute name="name" value="TLAST"/>
         <attribute name="authors" value="dewi"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2025-11-18 09.13.53 PM"/>
+        <attribute name="saved" value="2025-11-20 02.43.55 PM"/>
         <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMS0xODswOC4xMi40MiBQTTsyMTI5"/>
-        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMS0xODswOS4xMy41MyBQTTsxOzIyNDE="/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMS0yMDswMi40My41NSBQTTsyOzIyMzM="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="NamaTugas, NIM, matkul, dosen, deadline" type="String" array="True" size="10"/>
-            <declare name="i" type="Integer" array="False" size=""/>
-            <for variable="i" start="0" end="9" direction="inc" step="1">
-                <input variable="NamaTugas[i]"/>
-                <input variable="NIM[i]"/>
-                <input variable="matkul[i]"/>
-                <input variable="dosen[i]"/>
-                <input variable="deadline[i]"/>
-            </for>
+            <declare name="tasks" type="String" array="True" size="10"/>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <declare name="command" type="String" array="False" size=""/>
+            <input variable="command"/>
+            <if expression="command=&quot;---&quot;">
+                <then/>
+                <else>
+                    <if expression="command=&quot;Add task&quot;">
+                        <then>
+                            <call expression="AddTask(tasks,count)"/>
+                        </then>
+                        <else>
+                            <if expression="command=&quot;Update task status&quot;">
+                                <then>
+                                    <call expression="UpdateStatus(tasks,count)"/>
+                                </then>
+                                <else>
+                                    <if expression="command=&quot;Show assigment&quot;">
+                                        <then>
+                                            <call expression="ShowAssignmnet(tasks,count)"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
         </body>
     </function>
     <function name="AddTask" type="None" variable="">
         <parameters>
-            <parameter name="NamaTugas" type="String" array="False"/>
-            <parameter name="NIM" type="String" array="False"/>
-            <parameter name="matkul" type="String" array="False"/>
-            <parameter name="dosen" type="String" array="False"/>
-            <parameter name="deadline" type="String" array="False"/>
+            <parameter name="tasks" type="String" array="False"/>
+            <parameter name="count" type="Integer" array="False"/>
         </parameters>
         <body>
-            <input variable="NamaTugas"/>
-            <input variable="NIM"/>
-            <input variable="matkul"/>
-            <input variable="dosen"/>
-            <input variable="deadline"/>
+            <declare name="command" type="String" array="False" size=""/>
+            <declare name="title, code, course, lecturer, deadline, filename, status" type="String" array="False" size=""/>
+            <declare name="difficulty, days" type="Integer" array="False" size=""/>
+            <declare name="priority" type="Real" array="False" size=""/>
+            <while expression="count&lt;10 &amp;&amp; command != &quot;---&quot;">
+                <input variable="title"/>
+                <input variable="code"/>
+                <input variable="course"/>
+                <input variable="lecturer"/>
+                <input variable="deadline"/>
+                <input variable="filename"/>
+                <input variable="difficulty"/>
+                <input variable="days"/>
+                <input variable="status"/>
+                <assign variable="priority" expression="difficulty*(1.0/days)"/>
+                <assign variable="count" expression="count+1"/>
+            </while>
         </body>
     </function>
 </flowgorithm>
