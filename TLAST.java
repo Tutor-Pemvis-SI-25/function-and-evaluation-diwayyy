@@ -4,7 +4,7 @@
 import java.util.*;
 import java.lang.Math;
 
-public class TLAST {
+public class TLAST{
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -139,11 +139,11 @@ public class TLAST {
         for (i = 0; i <= n - 1; i++) {
             if (status[i].equals("Selesai")) {
                 System.out.println("Prioritas: " + toFixed(prioritas[i],2));
-                System.out.println("Prioritas: " + toFixed(prioritas[i],2) + deskripsitugas[i] + "|" + kodematkul[i] + "|" + matkul[i] + "|" + dosen[i] + "|" + nimnama[i] + "|" + status[i]);
+                System.out.println(deskripsitugas[i] + "|" + kodematkul[i] + "|" + matkul[i] + "|" + dosen[i] + "|" + nimnama[i] + "|" + status[i]);
             } else {
                 if (status[i].equals("Belum Selesai")) {
                     System.out.println("Prioritas: " + toFixed(prioritas[i],2));
-                    System.out.println("Prioritas: " + toFixed(prioritas[i],2) + deskripsitugas[i] + "|" + kodematkul[i] + "|" + matkul[i] + "|" + dosen[i] + "|" + deadline[i] + "|" + nimnama[i] + "|" + status[i] + "|" + teks[i]);
+                    System.out.println(deskripsitugas[i] + "|" + kodematkul[i] + "|" + matkul[i] + "|" + dosen[i] + "|" + deadline[i] + "|" + nimnama[i] + "|" + status[i] + "|" + teks[i]);
                 }
             }
         }
